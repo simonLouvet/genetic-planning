@@ -67,6 +67,12 @@ const trainings = [
 
 module.exports = { trainers, rooms, trainings };
 ```
+### Data Models
+
+- **Trainer**: Represents a trainer with availability on specific days
+- **Room**: Represents a room with availability on specific days
+- **Training**: Represents a training course with required occurrences, possible trainers, and possible rooms
+
 
 ## Algorithm Configuration
 
@@ -103,12 +109,7 @@ These parameters can be adjusted in `src/index.js`.
   - Changing a training's room
   - Changing a training's trainer
 
-### Data Models
 
-- **Trainer**: Represents a trainer with availability on specific days
-- **Room**: Represents a room with availability on specific days
-- **Training**: Represents a training course with required occurrences, possible trainers, and possible rooms
-- **ScheduledTraining**: Represents a scheduled training session with a specific trainer, room, day, and time slot
 
 ## Testing
 
