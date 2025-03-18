@@ -28,6 +28,12 @@ npm install
 ```bash
 # Run the application with sample data
 node src/index.js
+
+# Run parameter optimization to find optimal genetic algorithm settings
+npm run optimize-params
+
+# Run tests
+npm test
 ```
 
 ## Customizing the Data
@@ -36,16 +42,47 @@ To use your own data, modify the files in the `data` directory:
 
 - `sample-data.js`: Contains sample trainers, rooms, and training courses
 
+You can create your own data file following this structure:
+
+```javascript
+const { Trainer, Room, Training } = require('../src/models');
+
+// Define trainers with availability
+const trainers = [
+  new Trainer(1, "Alice", [0, 1, 2, 3, 4]), // Available all days
+  // Add more trainers...
+];
+
+// Define rooms with availability
+const rooms = [
+  new Room(1, "Room A", 20, [0, 1, 2, 3, 4]), // Available all days
+  // Add more rooms...
+];
+
+// Define trainings with requirements
+const trainings = [
+  new Training(1, "Course Title", requiredOccurrences, [trainerIds], [roomIds], duration),
+  // Add more trainings...
+];
+
+module.exports = { trainers, rooms, trainings };
+```
+
 ## Algorithm Configuration
 
-The genetic algorithm can be configured with the following parameters:
+GeneticScheduler contains a genetic algorithm that can be configured with the following parameters:
 
-- `generations`: Number of generations to run (default: 100)
-- `populationSize`: Population size (default: 50)
-- `crossoverRate`: Crossover probability (default: 0.3)
-- `mutationRate`: Mutation probability (default: 0.3)
-- `elitism`: Whether to keep the best individual (default: true)
-- `tournamentSize`: Size of tournament for selection (default: 3)
+- `iterations`: Number of iterations to ru, GeneticScheduler will stop when solution without conflicts is found or when the number of iterations is reached
+- `size`: Population size
+- `crossover`: Crossover probability
+- `mutation`: Mutation probability
+
+## Scheduler parameters
+
+those parameters are used to configure the scheduler in addition to the genetic algorithm parameters
+
+- `skip`: Number of generations to skip before logging
+- `verbose`: Whether to print verbose output
 
 These parameters can be adjusted in `src/index.js`.
 
@@ -72,6 +109,30 @@ These parameters can be adjusted in `src/index.js`.
 - **Room**: Represents a room with availability on specific days
 - **Training**: Represents a training course with required occurrences, possible trainers, and possible rooms
 - **ScheduledTraining**: Represents a scheduled training session with a specific trainer, room, day, and time slot
+
+## Testing
+
+The project includes comprehensive tests:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. create a new branch
+2. commit your changes
+3. push to the branch
+4. open a Pull Request
 
 ## License
 
