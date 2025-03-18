@@ -1,0 +1,30 @@
+{
+  "name": "genetic-planning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "start": "node src/index.js",
+    "optimize-params": "node src/parameter-optimizer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonLouvet/genetic-planning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonLouvet/genetic-planning/issues"
+  },
+  "homepage": "https://github.com/simonLouvet/genetic-planning#readme",
+  "dependencies": {
+    "genetic-js": "^0.1.14"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
