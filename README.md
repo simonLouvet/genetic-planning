@@ -90,15 +90,15 @@ These parameters can be adjusted in `src/index.js`.
 
 ### Genetic Algorithm Components
 
-- **Initialization**: Generates random initial schedules
-- **Fitness Function**: Evaluates schedules based on:
+- **seed**: Generates random initial schedules
+- **fitness**: Evaluates schedules based on:
   - Number of scheduled trainings
   - Absence of conflicts
   - Satisfaction of required occurrences
   - Trainer and room utilization
-- **Selection**: Tournament selection to choose parents
-- **Crossover**: Combines two parent schedules to create a child schedule
-- **Mutation**: Randomly modifies a schedule by:
+- **selection**: Tournament selection to choose parents
+- **crossover**: Combines two parent schedules to create a child schedule
+- **mutation**: Randomly modifies a schedule by:
   - Changing a training's time slot
   - Changing a training's room
   - Changing a training's trainer
